@@ -9,7 +9,7 @@ function Deck({ title = "Deck", data = [], admin }) {
   const totalPower = data.reduce((acc, crr) => (acc += crr.power), 0);
   const { toggleActivePlayer, activePlayer } = usePlayers();
   return (
-    <section className="deck">
+    <section className={`deck ${activePlayer === title.toLowerCase() ? 'active' : '' }`}>
       <section className="header">
         <h1>
           {title} - ⚡️ {totalPower}
