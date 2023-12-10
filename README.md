@@ -1,2 +1,4 @@
-# react-assignment-2
-Created with CodeSandbox
+# Pokemon Game
+
+# Demo
+https://pokemon-raysk4ever.vercel.app/
