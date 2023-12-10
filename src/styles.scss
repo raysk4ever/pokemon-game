@@ -73,3 +73,19 @@
   font-family: 'Pokemon';
   src: local('Pokemon'), url(../public/Pokemon-Hollow.ttf) format('ttf');
 }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .powers {
+    display: flex;
+    gap: 10px;
+    .power-item {
+      span {
+        font-size: larger;
+        margin-left: 10px;
+      }
+    }
+  }
+}

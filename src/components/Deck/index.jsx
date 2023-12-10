@@ -1,8 +1,11 @@
+import useAudio from "../../hooks/useAudio";
 import usePlayers from "../../hooks/usePlayers";
 
 import DeckItem from "./Item";
+import {AUDIOS} from '../../contants'
 
 function Deck({ title = "Deck", data = [], admin }) {
+  const audio = useAudio(AUDIOS.beep)
   const totalPower = data.reduce((acc, crr) => (acc += crr.power), 0);
   const { toggleActivePlayer, activePlayer } = usePlayers();
   return (
@@ -18,7 +21,7 @@ function Deck({ title = "Deck", data = [], admin }) {
         )}
       </section>
       <section className="data-list">
-        {data.map((item) => <DeckItem key={item.name} item={item} admin={admin} />)}
+        {data.map((item) => <DeckItem key={item.name} item={item} admin={admin} onItemClick={() => audio.play()} />)}
       </section>
     </section>
   );

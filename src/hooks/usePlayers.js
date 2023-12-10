@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { PokemonContext } from "../context/Pokemon.context";
 
+
 function usePlayers() {
   const {
     players,
@@ -28,6 +29,7 @@ function usePlayers() {
       [activePlayer]: {
         ...crr[activePlayer],
         deck: [pokemon, ...crr[activePlayer].deck],
+        power: crr[activePlayer].power + pokemon.power
       },
     }));
     toggleActivePlayer();

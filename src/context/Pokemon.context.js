@@ -7,10 +7,12 @@ export const PokemonProvider = ({ children }) => {
     ash: {
       title: "Ash",
       deck: [],
+      power: 0
     },
     misty: {
       title: "Misty",
       deck: [],
+      power: 0
     },
   });
   const [selectedPokemon, setSelectedPokemon] = useState([]);

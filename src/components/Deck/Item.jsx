@@ -1,11 +1,14 @@
 import usePlayers from "../../hooks/usePlayers";
 
-export default function DeckItem({ admin, item }) {
+export default function DeckItem({ admin, item, onItemClick }) {
   const { addPokemonToPlayer, selectedPokemon } = usePlayers();
 
   const isDisable = admin && selectedPokemon.includes(item.name);
   const onClick = () => {
-    admin && addPokemonToPlayer(item);
+    if (admin) {
+      addPokemonToPlayer(item);
+      onItemClick && onItemClick()
+    }
   };
 
   return (
