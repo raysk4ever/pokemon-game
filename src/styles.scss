@@ -1,0 +1,71 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .app-bottom {
+    display: flex;
+    gap: 10px;
+  }
+}
+.deck {
+  border: 2px solid black;
+  flex: 1;
+  .active-player {
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 10px;
+    strong {
+      text-transform: uppercase;
+    }
+  }
+  .header {
+    display: flex;
+    background: gray;
+    margin-bottom: 10px;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+    h1 {
+      margin: 0px;
+      top: 0;
+    }
+  }
+  .data-list {
+    padding: 0px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    height: 300px;
+    overflow: scroll;
+
+    .data-item {
+      animation: fadeIn 0.2s linear;
+      transition: all 0.1s linear;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      &:hover {
+        // background: #eee;
+        transform: scale(1.1);
+      }
+      &.disable {
+        opacity: 0.2;
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
