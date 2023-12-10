@@ -5,6 +5,7 @@ import usePlayers from "./usePlayers";
 function usePokemon() {
   const pokemon = useMemo(() => new PokemonService(), []);
   const [pokemons, setPokemons] = useState([]);
+
   const { addPokemonToPlayer, activePlayer, setActivePlayer, selectedPokemon } =
     usePlayers();
 

@@ -1,4 +1,4 @@
-import { Deck } from "./components";
+import { Deck, Header } from "./components";
 import usePlayers from "./hooks/usePlayers";
 import usePokemon from "./hooks/usePokemon";
 import "./styles.scss";
@@ -9,6 +9,7 @@ export default function App() {
 
   return (
     <main className="App">
+      <Header />
       <Deck admin data={pokemons} title="All Pokemons" />
       <section className="app-bottom">
         {playersArr.map((p) => (

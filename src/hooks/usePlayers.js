@@ -22,12 +22,12 @@ function usePlayers() {
     setActivePlayer((crr) => (crr === "ash" ? "misty" : "ash"));
   };
 
-  const addPokemonToPlayer = (player, pokemon) => {
+  const addPokemonToPlayer = (pokemon) => {
     setPlayers((crr) => ({
       ...crr,
-      [player]: {
-        ...crr[player],
-        deck: [pokemon, ...crr[player].deck],
+      [activePlayer]: {
+        ...crr[activePlayer],
+        deck: [pokemon, ...crr[activePlayer].deck],
       },
     }));
     toggleActivePlayer();
