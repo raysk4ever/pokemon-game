@@ -8,6 +8,9 @@
     gap: 10px;
   }
 }
+.user-img {
+  border-radius: 30px;
+}
 .deck {
   border: 2px solid black;
   flex: 1;
@@ -90,8 +93,10 @@ header {
   align-items: center;
   .powers {
     display: flex;
-    gap: 10px;
+    gap: 20px;
     .power-item {
+      display: flex;
+      align-items: center;
       span {
         font-size: larger;
         margin-left: 10px;

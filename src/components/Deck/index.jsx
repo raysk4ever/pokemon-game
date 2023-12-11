@@ -24,6 +24,9 @@ function Deck({ title = "Deck", data = [], admin }) {
             Active Player is <strong>{activePlayer}</strong>
           </button>
         )}
+        {!admin && (
+          <img className="user-img" src={`/${title}.png`} width={40} />
+        )}
       </section>
       <section className="data-list">
         {data.map((item) => <DeckItem key={item.name} item={item} admin={admin} onItemClick={onItemClick} selectedPokemon={selectedPokemon} />)}

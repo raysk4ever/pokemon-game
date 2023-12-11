@@ -10,8 +10,8 @@ function Header() {
       <section className="powers">
       {Object.values(players).map((p) => (
         <div className="power-item" key={p.title}>
-          <span>⚡️{p.title}</span>
-          <span>{p.power}</span>
+          <img className="user-img" src={`/${p.title}.png`} width={40} />
+          <span>⚡️{p.power}</span>
         </div>
       ))}
       </section>
