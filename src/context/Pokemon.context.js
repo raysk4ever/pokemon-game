@@ -1,5 +1,5 @@
-import { createContext, useState } from "react";
-
+import { createContext, useEffect, useState } from "react";
+import PokemonService from '../services/pokemon.service'
 export const PokemonContext = createContext();
 
 export const PokemonProvider = ({ children }) => {
@@ -18,6 +18,13 @@ export const PokemonProvider = ({ children }) => {
   const [selectedPokemon, setSelectedPokemon] = useState([]);
 
   const [activePlayer, setActivePlayer] = useState("ash");
+
+  useEffect(() => {
+    if (selectedPokemon.length === PokemonService.limit) {
+      
+      setWinner()
+    }
+  }, [selectedPokemon.length])
 
   return (
     <PokemonContext.Provider

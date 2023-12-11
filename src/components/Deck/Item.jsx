@@ -1,13 +1,8 @@
-import usePlayers from "../../hooks/usePlayers";
-
-export default function DeckItem({ admin, item, onItemClick }) {
-  const { addPokemonToPlayer, selectedPokemon } = usePlayers();
-
+export default function DeckItem({ admin, item, onItemClick, selectedPokemon }) {
   const isDisable = admin && selectedPokemon.includes(item.name);
   const onClick = () => {
     if (admin) {
-      addPokemonToPlayer(item);
-      onItemClick && onItemClick()
+      onItemClick && onItemClick(item)
     }
   };
 
@@ -17,7 +12,9 @@ export default function DeckItem({ admin, item, onItemClick }) {
       className={`data-item ${isDisable ? "disable" : ""}`}
       onClick={!isDisable ? onClick : undefined}
     >
-      <img loading="lazy" src={item.img} width={100} />
+      <img onError={function(event) {
+        event.target.src = '/favicon.png'
+      }} loading="lazy" src={item.img} />
       <span>{item.name}</span>
       <span>⚡️ {item.power}</span>
     </div>

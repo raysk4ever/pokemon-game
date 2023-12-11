@@ -7,7 +7,12 @@ import {AUDIOS} from '../../contants'
 function Deck({ title = "Deck", data = [], admin }) {
   const audio = useAudio(AUDIOS.beep)
   const totalPower = data.reduce((acc, crr) => (acc += crr.power), 0);
-  const { toggleActivePlayer, activePlayer } = usePlayers();
+  const { toggleActivePlayer, activePlayer, selectedPokemon, addPokemonToPlayer } = usePlayers()
+
+  const onItemClick = (item) => {
+    audio.play()
+    addPokemonToPlayer(item)
+  }
   return (
     <section className={`deck ${activePlayer === title.toLowerCase() ? 'active' : '' }`}>
       <section className="header">
@@ -21,7 +26,7 @@ function Deck({ title = "Deck", data = [], admin }) {
         )}
       </section>
       <section className="data-list">
-        {data.map((item) => <DeckItem key={item.name} item={item} admin={admin} onItemClick={() => audio.play()} />)}
+        {data.map((item) => <DeckItem key={item.name} item={item} admin={admin} onItemClick={onItemClick} selectedPokemon={selectedPokemon} />)}
       </section>
     </section>
   );

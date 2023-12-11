@@ -1,10 +1,10 @@
 import AxiosService from "./axios.service";
 
 class PokemonService extends AxiosService {
+  static limit = 300
+  static offset = Math.round(Math.random(0) * 100)
   getPokemon() {
-    const limit = 300
-    const offset = Math.round(Math.random(0) * 100)
-    return this.api.get(`pokemon?limit=${limit}&offset=${offset}`);
+    return this.api.get(`pokemon?limit=${PokemonService.limit}&offset=${PokemonService.offset}`);
   }
 }
 export default PokemonService;
