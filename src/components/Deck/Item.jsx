@@ -16,7 +16,7 @@ export default function DeckItem({ admin, item, onItemClick, selectedPokemon }) 
         event.target.src = '/favicon.png'
       }} loading="lazy" src={item.img} />
       <span>{item.name}</span>
-      <span>⚡️ {item.power}</span>
+      {!admin && <span>⚡️ {item.power}</span>}
     </div>
   );
 }
