@@ -7,6 +7,7 @@ export default function App() {
   const { pokemons } = usePokemon();
   const { playersArr, players } = usePlayers();
 
+  // testing
   return (
     <main className="App">
       <Header />
